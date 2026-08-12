@@ -21,7 +21,7 @@ test("runs the product NLopt flow and exports the complete snapshot", async ({
   await baseInputs.nth(4).blur();
 
   const stage3 = page.locator("section").filter({
-    has: page.getByRole("heading", { name: "Define what must remain true" }),
+    has: page.getByRole("heading", { name: "Define what must hold true" }),
   });
   await stage3.getByRole("button", { name: "Add constraint" }).click();
   await stage3.getByRole("button", { name: "Add constraint" }).click();
@@ -31,7 +31,9 @@ test("runs the product NLopt flow and exports the complete snapshot", async ({
   await constraints.nth(1).blur();
 
   const stage4 = page.locator("section").filter({
-    has: page.getByRole("heading", { name: "Configure optimization" }),
+    has: page.getByRole("heading", {
+      name: "Configure the optimization problem",
+    }),
   });
   await stage4.getByLabel("by updating").selectOption({ label: "a (m)" });
   await stage4.getByRole("button", { name: "Optimize" }).click();

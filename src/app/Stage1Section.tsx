@@ -349,11 +349,11 @@ export function Stage1Section({
           01
         </div>
         <div>
-          <p className="stage-kicker">Base variables</p>
+          <p className="stage-kicker">Independent variables</p>
           <h2 id="stage-1-title">Define the tolerance space</h2>
           <p>
-            Enter each independent measurement in the form you have. TolAssist
-            keeps both representations ready for later calculations.
+            Define independent variables in the representation you have.
+            TolAssist keeps both representations ready for later calculations.
           </p>
         </div>
         <div className="stage-summary" aria-live="polite">

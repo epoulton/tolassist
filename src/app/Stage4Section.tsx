@@ -59,10 +59,10 @@ export function Stage4Section({
         </div>
         <div>
           <p className="stage-kicker">Constrained optimization</p>
-          <h2 id="stage-4-title">Configure optimization</h2>
+          <h2 id="stage-4-title">Configure the optimization problem</h2>
           <p>
-            Choose which base-variable nominal and tolerance values NLopt may
-            update. Your editable inputs remain unchanged.
+            Choose which independent nominal and tolerance values NLopt may
+            modify. Your above inputs remain unchanged.
           </p>
         </div>
         <div className="stage-summary optimization-engine-label">

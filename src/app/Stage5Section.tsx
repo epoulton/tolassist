@@ -48,7 +48,7 @@ export function Stage5Section({
           </h2>
           <p>
             This self-contained record preserves the complete problem and the
-            last successful solution, even if earlier inputs change later.
+            last successful solution, even if earlier inputs change.
           </p>
         </div>
         {snapshot ? (
