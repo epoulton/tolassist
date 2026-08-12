@@ -4,6 +4,30 @@ coverage/
 playwright-report/
 test-results/
 benchmark-results/
+.history-backups/
+
+# Local environment and package-manager credentials
+.env
+.env.*
+!.env.example
+!.env.*.example
+.npmrc
+.pypirc
+
+# Keys, certificates, and common credential exports
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+credentials*.json
+service-account*.json
+service_account*.json
+secrets*.json
+secrets*.yaml
+secrets*.yml
+
 *.local
 *.log
 .DS_Store
