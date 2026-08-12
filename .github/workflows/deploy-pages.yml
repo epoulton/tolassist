@@ -52,7 +52,7 @@ jobs:
         run: npm run build:pages
 
       - name: Test Pages artifact
-        run: npx playwright test --config playwright.pages.config.ts
+        run: node scripts/run-playwright.mjs pages
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
