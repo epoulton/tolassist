@@ -1,0 +1,59 @@
+{
+  "name": "tolassist",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --pretty false",
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:e2e": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/run-e2e.ps1",
+    "benchmark:nlopt": "npm run build && powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/run-nlopt-benchmark.ps1",
+    "benchmark:scipy": "npm run build && powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/run-scipy-benchmark.ps1",
+    "test:solvers": "npm run build && powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/run-e2e.ps1",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test:run && npm run build",
+    "check:all": "npm run check && npm run test:e2e"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "6.3.1",
+    "@dnd-kit/sortable": "10.0.0",
+    "@dnd-kit/utilities": "3.2.2",
+    "@formkit/auto-animate": "0.10.0",
+    "buffer": "6.0.3",
+    "mathjs": "15.2.0",
+    "nlopt-js": "0.1.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.62.1",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.4",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "6.0.5",
+    "eslint": "10.8.1",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.4",
+    "globals": "17.10.0",
+    "jsdom": "30.0.1",
+    "prettier": "3.9.6",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.67.0",
+    "vite": "8.2.1",
+    "vitest": "4.1.10"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
