@@ -2,7 +2,7 @@
 
 TolAssist is a browser-based engineering tolerance calculator and optimizer. Product behavior is defined in [SPEC.md](./SPEC.md), and the implementation roadmap is in [PLAN.md](./PLAN.md).
 
-The completed Phase 9 local build implements the five-stage calculation and
+The completed TolAssist build implements the five-stage calculation and
 optimization workflow: base variables, restricted unit-aware derived expressions with result
 inspectors, and broadcast constraint evaluation with green, yellow, and red
 statuses. It also includes the UI-independent optimization foundation: a
@@ -60,4 +60,31 @@ and reference results are documented in
 
 The module boundaries are summarized in [ARCHITECTURE.md](./ARCHITECTURE.md). Architecture decision records live in [`docs/adr`](./docs/adr).
 
-Distribution, hosting, and continuous integration are intentionally deferred.
+## GitHub Pages deployment
+
+The public application is published at
+[https://epoulton.github.io/tolassist/](https://epoulton.github.io/tolassist/).
+The site is a static build: engineering inputs and calculations remain in the
+visitor's browser and are not sent to an application server.
+
+Every push to `main` starts **Deploy TolAssist to GitHub Pages** in the
+repository's **Actions** tab. The workflow installs from the lockfile, checks
+formatting, lint, types, and unit tests, builds the `/tolassist/` Pages artifact,
+runs the hosted-environment browser test, and deploys only after all checks
+pass. A failed run leaves the previous successful deployment available.
+
+To inspect or retry a deployment, open **Actions**, select the workflow run, and
+review the failed step. Use **Re-run jobs** after correcting a transient failure.
+The same workflow can be started manually through **Run workflow**.
+
+To roll back, revert the unwanted release commit on `main` and push the revert;
+the workflow will deploy the restored version. Do not force-push `main`.
+
+The dark workshop design is the production appearance. Its history remains on
+`codex/dark-workshop-aesthetic`; the previous light appearance remains on
+`codex/light-aesthetic`. Only `main` deploys. Never add credentials, proprietary
+examples, or other secrets to this public browser artifact.
+
+The Pages build excludes the local solver benchmark and SciPy/Pyodide adapter.
+GitHub Pages cannot reproduce the local COOP/COEP isolation headers, so NLopt is
+the supported hosted solver and SciPy remains a local benchmark-only tool.

@@ -1,26 +1,11 @@
 import type { SolverDescriptor } from "./contracts";
+import { nloptSolverDescriptor } from "./production";
 
-export const nloptSolverDescriptor: SolverDescriptor = {
-  id: "nlopt-cobyla",
-  label: "NLopt COBYLA",
-  capabilities: {
-    nonlinearInequalities: true,
-    nonlinearEqualities: true,
-    variableBounds: true,
-    derivativeFree: true,
-    explicitMaximization: false,
-    timeLimit: true,
-    evaluationLimit: true,
-    progress: "evaluations",
-    cooperativeCancellation: false,
-    forcedWorkerTermination: true,
-    deterministic: true,
-  },
-  async load() {
-    const { NloptOptimizationEngine } = await import("./nlopt/engine");
-    return new NloptOptimizationEngine();
-  },
-};
+export {
+  nloptSolverDescriptor,
+  productionSolverDescriptor,
+  productionSolverId,
+} from "./production";
 
 export const scipySolverDescriptor: SolverDescriptor = {
   id: "scipy-cobyla",
@@ -43,10 +28,6 @@ export const scipySolverDescriptor: SolverDescriptor = {
     return new ScipyOptimizationEngine();
   },
 };
-
-export const productionSolverId = "nlopt-cobyla" as const;
-
-export const productionSolverDescriptor = nloptSolverDescriptor;
 
 export const comparisonSolverRegistry = [
   nloptSolverDescriptor,

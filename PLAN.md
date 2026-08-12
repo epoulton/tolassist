@@ -1,6 +1,6 @@
 # TolAssist — Implementation Plan
 
-> Status: Implemented local-release roadmap
+> Status: Implemented release roadmap
 >
 > Source of truth for product behavior: [`SPEC.md`](./SPEC.md)
 
@@ -16,6 +16,7 @@
 - Phase 7 — Complete; NLopt selected for production
 - Phase 8 — Complete
 - Phase 9 — Complete
+- Phase 10 — Complete; GitHub Pages delivery
 
 ## 1. Implementation Strategy
 
@@ -36,11 +37,11 @@ These choices establish the application shell while leaving the scientific libra
 - Vite
 - Vitest for unit and integration tests
 - React Testing Library for UI behavior
-- Playwright for browser-level workflows and local production-build verification
+- Playwright for browser-level workflows and local and hosted-mode production-build verification
 - A mature accessible drag-and-drop library with keyboard support
 - A mature layout-animation library or browser-native layout transitions, with reduced-motion support
 - Web Workers for optimization engines
-- Local quality scripts for type checking, linting, tests, and production builds; continuous integration is deferred with hosting and distribution work
+- Local quality scripts plus GitHub Actions for type checking, linting, tests, production builds, and GitHub Pages deployment
 
 Decisions still requiring technical spikes:
 
@@ -426,6 +427,21 @@ workflow axe-core scans, a 360-pixel layout check, reduced-motion rendering,
 keyboard-only reordering, result export, and the production solver workflow.
 The current stable Chromium engine is the supported initial-release baseline;
 Firefox and Safari remain unqualified rather than implicitly supported.
+
+### Phase 10 — GitHub Pages Delivery (Complete)
+
+- Build the product at the `/tolassist/` project path without the benchmark-only
+  SciPy/Pyodide entry.
+- Verify the Pages artifact and run the complete NLopt workflow without local
+  cross-origin-isolation headers.
+- Deploy only successful `main` builds through GitHub Actions.
+- Retain the light and dark aesthetic histories on named branches.
+
+Implementation result: GitHub Actions publishes the dark-workshop production
+appearance to `https://epoulton.github.io/tolassist/`. The workflow uses a
+single-entry Pages build, runs automated quality and hosted-mode browser checks,
+and uploads generated output without committing `dist/` or maintaining a
+`gh-pages` branch.
 
 ## 6. Shared Solver Benchmark Suite
 
