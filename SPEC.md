@@ -340,7 +340,7 @@ Constraint operands are aligned and broadcast across their named axes. The all-n
 - The initial implementation should favor a global Stage 1–3 validation and recalculation cycle over incremental dependency updates.
 - Optimization must be provided by an established library with constrained optimization and robust termination/error reporting capabilities.
 - TolAssist must be built as a client-side single-page web application.
-- The app must not require an application server for calculation or optimization during local development.
+- The app must not require an application server for calculation or optimization locally or when hosted.
 - All validation, expression evaluation, broadcasting, constraint evaluation, and optimization must therefore run in the browser unless this requirement is revised later.
 - The UI implementation must support polished state transitions for dynamic list and disclosure layout changes.
 
@@ -353,7 +353,7 @@ The leading implementation option is a hybrid static application:
 - **Threading:** load and run the scientific runtime in a Web Worker so validation and optimization do not block interaction or animation on the main UI thread.
 - **Scientific libraries:** evaluate established packages such as Pint for units, xarray for named-axis broadcasting, and SciPy for constrained optimization. Package compatibility and browser bundle impact must be proven with a technical spike before final selection.
 - **Expression safety:** parse a deliberately restricted mathematical grammar; do not pass user input to unrestricted Python or JavaScript evaluation.
-- **Build:** produce a locally verifiable production build; distribution and hosting are deferred.
+- **Build:** produce locally verifiable standard and GitHub Pages production builds. Publish the product-only Pages artifact at the `/tolassist/` project path.
 - **UI motion:** use a mature layout-animation approach that respects the user's reduced-motion preference.
 
 Advantages:
@@ -470,7 +470,7 @@ The spike must verify correctness, diagnostic quality, bundle size, and repeated
 
 ### Initial Release
 
-- A client-side, five-stage single-page application that runs locally in development and produces a verified local production build.
+- A client-side, five-stage single-page application that runs locally and as a public GitHub Pages project site.
 - An ephemeral editable session with no automatic local persistence and no problem-definition import/export.
 - Explicit JSON export of successful Stage 5 result snapshots.
 
@@ -525,7 +525,7 @@ TBD
 - The initial and preselected objective maximizes the smallest tolerance among the selected Stage 1 variables, subject to all Stage 3 constraints.
 - Equivalent maximization or minimization formulations may be used according to the chosen engine.
 - The objective catalog is extensible even though the initial release contains one option.
-- TolAssist is a browser-executed single-page application; distribution and hosting decisions are deferred.
+- TolAssist is a browser-executed single-page application deployed publicly through GitHub Pages from successful `main` builds.
 - The visual style is polished and restrained, with rich contextual feedback and smooth layout transitions.
 - Stage 4 decision variables are selected from the Stage 1 variables through a multiselect.
 - Every selected Stage 1 variable contributes nominal and tolerance decision variables to optimization.

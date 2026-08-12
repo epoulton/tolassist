@@ -268,7 +268,7 @@ export function App({
           Tol<span>Assist</span>
         </a>
         <p>Engineering tolerance optimization</p>
-        <span className="phase-label">Local build · Phase 9</span>
+        <span className="phase-label">Runs in your browser</span>
       </header>
 
       <main className="app-shell" id="top">

@@ -56,6 +56,7 @@ describe("App", () => {
       }),
     ).toBeInTheDocument();
     expect(screen.getAllByRole("heading", { level: 2 })).toHaveLength(5);
+    expect(screen.getByText("Runs in your browser")).toBeVisible();
     expect(
       screen.getAllByRole("button", { name: /delete variable/i }),
     ).toHaveLength(2);

@@ -25,3 +25,16 @@ Stage 5 renders and exports only that snapshot, so later edits and unsuccessful
 runs cannot alter the recorded solution.
 
 Architecturally significant decisions are recorded in `docs/adr`.
+
+## Delivery boundary
+
+The production application is built in Vite's `pages` mode with the
+`/tolassist/` base path and deployed from `main` by GitHub Actions. That build
+has a single product entry and excludes the local benchmark page and the
+SciPy/Pyodide comparison path. NLopt remains a lazy worker asset and is fetched
+only when optimization begins.
+
+Local development and the ordinary production build retain the benchmark entry
+and COOP/COEP headers used to exercise cooperative Pyodide interruption. GitHub
+Pages cannot set those response headers, so hosted correctness is verified by a
+separate Pages-mode Playwright test without cross-origin isolation.
