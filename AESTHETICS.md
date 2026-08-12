@@ -2,7 +2,8 @@
 
 > Status: Approved visual direction for a future styling pass
 >
-> Reference: User-provided workshop photograph reviewed locally; not tracked or distributed with TolAssist.
+> Reference: User-provided workshop photograph reviewed locally; not tracked
+> or distributed with TolAssist.
 
 The reference photograph is inspiration only. It will not be copied into the
 repository, displayed in the application, or shipped as an application asset.
