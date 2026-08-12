@@ -1536,3 +1536,805 @@ h2 {
     border-color: rgb(255 255 255 / 70%);
   }
 }
+
+/* Dark workshop aesthetic ------------------------------------------------- */
+
+:root {
+  color: #f4ebdd;
+  background: #0d0b0a;
+  color-scheme: dark;
+  font-family:
+    "IBM Plex Sans",
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  --ink: #f4ebdd;
+  --muted: #bfb0a0;
+  --line: #5b493b;
+  --surface: #251f1a;
+  --accent: #f4932f;
+  --accent-soft: #3a281a;
+  --danger: #ff766b;
+  --danger-soft: #3a1c19;
+  --forge-bg: #0d0b0a;
+  --forge-bg-warm: #15110e;
+  --forge-panel: #1b1714;
+  --forge-panel-raised: #251f1a;
+  --forge-panel-active: #30271f;
+  --forge-field: #100e0d;
+  --forge-text: #f4ebdd;
+  --forge-text-muted: #bfb0a0;
+  --forge-text-faint: #958678;
+  --forge-line: #5b493b;
+  --forge-line-subtle: #382e27;
+  --forge-copper: #b66e43;
+  --forge-copper-bright: #d88a55;
+  --forge-heat: #f4932f;
+  --forge-heat-hover: #ffad4a;
+  --forge-on-heat: #1a1008;
+  --forge-success: #65d391;
+  --forge-warning: #f2be55;
+  --forge-danger: #ff766b;
+  --forge-info: #72b8d4;
+  --forge-disabled: #766b62;
+}
+
+html {
+  scrollbar-color: var(--forge-copper) var(--forge-bg);
+}
+
+body {
+  background:
+    radial-gradient(circle at 78% 4%, rgb(244 147 47 / 13%), transparent 28rem),
+    radial-gradient(circle at 14% 30%, rgb(182 110 67 / 7%), transparent 34rem),
+    repeating-linear-gradient(
+      100deg,
+      rgb(255 255 255 / 0.008) 0,
+      rgb(255 255 255 / 0.008) 1px,
+      transparent 1px,
+      transparent 7px
+    ),
+    var(--forge-bg);
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[tabindex="-1"]:focus-visible {
+  outline: 3px solid var(--forge-heat);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 1px var(--forge-bg);
+}
+
+.topbar {
+  min-height: 4rem;
+  border-bottom: 1px solid var(--forge-line);
+  background:
+    linear-gradient(180deg, rgb(48 39 31 / 96%), rgb(20 17 14 / 96%)),
+    var(--forge-panel);
+  box-shadow:
+    inset 0 1px rgb(244 235 221 / 7%),
+    0 0.5rem 1.5rem rgb(0 0 0 / 28%);
+  backdrop-filter: blur(14px);
+}
+
+.wordmark {
+  color: var(--forge-text);
+  font-family:
+    "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  font-size: 1.28rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.wordmark span {
+  color: var(--forge-heat);
+}
+
+.topbar p,
+.phase-label {
+  color: var(--forge-text-muted);
+  font-family:
+    "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.phase-label {
+  color: var(--forge-copper-bright);
+}
+
+.app-shell {
+  position: relative;
+}
+
+.hero {
+  position: relative;
+  max-width: 63rem;
+}
+
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  top: -7rem;
+  left: -10vw;
+  width: min(75vw, 62rem);
+  height: 28rem;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgb(244 147 47 / 10%),
+    rgb(182 110 67 / 3%) 48%,
+    transparent 72%
+  );
+  content: "";
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.eyebrow,
+.stage-kicker {
+  color: var(--forge-copper-bright);
+  font-family:
+    "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+h1,
+h2,
+.snapshot-group h3,
+.snapshot-objective h3 {
+  color: var(--forge-text);
+  font-family:
+    "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  font-stretch: condensed;
+}
+
+h1 {
+  max-width: 58rem;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.88;
+  text-wrap: balance;
+  text-shadow: 0 0.12rem 0 rgb(0 0 0 / 45%);
+}
+
+h2 {
+  font-weight: 680;
+  letter-spacing: -0.025em;
+}
+
+h2[tabindex="-1"] {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.lede {
+  color: var(--forge-text-muted);
+}
+
+.workflow {
+  gap: 0.85rem;
+}
+
+.validation-cycle {
+  border-color: var(--forge-line);
+  border-radius: 4px;
+  color: var(--forge-text-muted);
+  background: var(--forge-panel);
+  box-shadow:
+    inset 0 1px rgb(244 235 221 / 5%),
+    0 0.45rem 1rem rgb(0 0 0 / 20%);
+  font-family:
+    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+.validation-cycle > span {
+  border: 1px solid #b5a698;
+  border-radius: 2px;
+  background: var(--forge-disabled);
+}
+
+.validation-cycle-passed {
+  border-color: rgb(101 211 145 / 55%);
+  color: var(--forge-success);
+  background: #14241b;
+}
+
+.validation-cycle-passed > span {
+  border-color: var(--forge-success);
+  background: var(--forge-success);
+}
+
+.validation-cycle-failed {
+  border-color: rgb(255 118 107 / 58%);
+  color: var(--forge-danger);
+  background: #291513;
+}
+
+.validation-cycle-failed > span {
+  border-color: var(--forge-danger);
+  background: var(--forge-danger);
+}
+
+.workflow-stage {
+  position: relative;
+  border-color: var(--forge-line);
+  border-radius: 7px;
+  background:
+    linear-gradient(180deg, rgb(244 235 221 / 2.5%), transparent 5rem),
+    var(--forge-panel);
+  box-shadow:
+    inset 0 1px rgb(244 235 221 / 6%),
+    inset 0 -1px rgb(0 0 0 / 40%),
+    0 0.9rem 2.4rem rgb(0 0 0 / 24%);
+}
+
+.workflow-stage:focus-within {
+  border-color: var(--forge-copper);
+  background:
+    linear-gradient(180deg, rgb(216 138 85 / 5%), transparent 6rem),
+    var(--forge-panel);
+}
+
+.stage-heading > div:nth-child(2) > p:last-child,
+.stage-upcoming p:last-child {
+  color: var(--forge-text-muted);
+}
+
+.stage-index {
+  width: 2.65rem;
+  height: 2.65rem;
+  border-color: var(--forge-copper);
+  border-radius: 3px;
+  color: var(--forge-heat);
+  background:
+    linear-gradient(145deg, rgb(244 235 221 / 7%), transparent 55%),
+    var(--forge-panel-raised);
+  box-shadow:
+    inset 0 1px rgb(244 235 221 / 8%),
+    inset 0 -2px rgb(0 0 0 / 28%);
+  font-family:
+    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+.stage-summary {
+  color: var(--forge-text-muted);
+  font-family:
+    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+.stage-summary strong {
+  color: var(--forge-text);
+  font-family:
+    "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+}
+
+.stage-summary em,
+.validation-error,
+.validation-errors,
+.optimization-feedback-failed {
+  color: var(--forge-danger);
+}
+
+.stage-help {
+  border: 1px solid var(--forge-line-subtle);
+  border-left: 3px solid var(--forge-copper);
+  border-radius: 0 4px 4px 0;
+  color: var(--forge-text-muted);
+  background: #161311;
+  box-shadow: inset 0 1px rgb(244 235 221 / 3%);
+}
+
+.variable-row,
+.definition-row {
+  border-color: var(--forge-line-subtle);
+  border-radius: 5px;
+  background:
+    linear-gradient(180deg, rgb(244 235 221 / 2.5%), transparent 3rem),
+    var(--forge-panel-raised);
+  box-shadow:
+    inset 0 1px rgb(244 235 221 / 5%),
+    inset 0 -1px rgb(0 0 0 / 30%);
+}
+
+.variable-row:focus-within,
+.definition-row:focus-within {
+  border-color: var(--forge-copper-bright);
+  background:
+    linear-gradient(180deg, rgb(216 138 85 / 5%), transparent 3rem),
+    var(--forge-panel-active);
+}
+
+.variable-row-valid,
+.definition-row-valid {
+  border-color: rgb(101 211 145 / 45%);
+}
+
+.variable-row-invalid,
+.definition-row-invalid {
+  border-color: rgb(255 118 107 / 68%);
+  background: linear-gradient(
+    90deg,
+    rgb(255 118 107 / 10%),
+    var(--forge-panel-raised) 28%
+  );
+}
+
+.variable-row.is-dragging,
+.definition-row.is-dragging {
+  border-color: var(--forge-heat);
+  box-shadow:
+    inset 0 1px rgb(255 255 255 / 8%),
+    0 1rem 2.5rem rgb(0 0 0 / 48%);
+}
+
+.drag-handle {
+  border-radius: 3px;
+  color: var(--forge-text-faint);
+  font-family:
+    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+.drag-handle:hover,
+.drag-handle[aria-pressed="true"] {
+  color: var(--forge-heat);
+  background: var(--forge-field);
+  box-shadow: inset 0 0 0 1px var(--forge-line);
+}
+
+.row-number,
+.constraint-number {
+  color: var(--forge-text-faint);
+  font-family:
+    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+.field > span:first-child,
+.optimization-control > span {
+  color: var(--forge-text-muted);
+  font-family:
+    "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+.field input,
+.optimization-control select {
+  border-color: var(--forge-line);
+  border-radius: 3px;
+  color: var(--forge-text);
+  background: var(--forge-field);
+  box-shadow:
+    inset 0 2px 5px rgb(0 0 0 / 42%),
+    0 1px rgb(244 235 221 / 3%);
+}
+
+.field input {
+  font-family:
+    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+.field input::placeholder {
+  color: var(--forge-text-faint);
+}
+
+.field input:hover,
+.optimization-control select:hover {
+  border-color: var(--forge-copper);
+}
+
+.field input:focus,
+.optimization-control select:focus {
+  border-color: var(--forge-heat);
+  outline: 0;
+  box-shadow:
+    0 0 0 3px rgb(244 147 47 / 24%),
+    inset 0 2px 5px rgb(0 0 0 / 42%);
+}
+
+.field input[aria-invalid="true"] {
+  border-color: var(--forge-danger);
+  box-shadow:
+    0 0 0 2px rgb(255 118 107 / 18%),
+    inset 0 2px 5px rgb(0 0 0 / 42%);
+}
+
+.format-switcher {
+  border-color: var(--forge-line);
+  border-radius: 4px;
+  background: var(--forge-field);
+  box-shadow: inset 0 2px 5px rgb(0 0 0 / 36%);
+}
+
+.format-switcher button {
+  border-radius: 2px;
+  color: var(--forge-text-muted);
+}
+
+.format-switcher button[aria-pressed="true"] {
+  color: var(--forge-text);
+  background: var(--forge-panel-active);
+  box-shadow:
+    inset 0 0 0 1px var(--forge-copper),
+    inset 0 1px rgb(244 235 221 / 7%);
+}
+
+.format-switcher button:disabled,
+.optimization-control select:disabled {
+  color: var(--forge-disabled);
+  background: #161310;
+  opacity: 0.72;
+}
+
+.remove-button {
+  border-radius: 3px;
+  color: var(--forge-danger);
+}
+
+.remove-button:hover {
+  background: var(--danger-soft);
+  box-shadow: inset 0 0 0 1px rgb(255 118 107 / 34%);
+}
+
+.validation-success,
+.optimization-feedback-succeeded {
+  color: var(--forge-success);
+}
+
+.validation-pending,
+.optimization-guidance {
+  color: var(--forge-warning);
+}
+
+.add-row-button,
+.inspector-toggle {
+  border-color: var(--forge-copper);
+  border-radius: 4px;
+  color: var(--forge-text);
+  background:
+    linear-gradient(180deg, rgb(244 235 221 / 5%), transparent),
+    var(--forge-panel-raised);
+  box-shadow:
+    inset 0 1px rgb(244 235 221 / 7%),
+    inset 0 -1px rgb(0 0 0 / 34%);
+}
+
+.add-row-button:hover,
+.inspector-toggle:hover {
+  border-color: var(--forge-heat);
+  color: var(--forge-heat-hover);
+  background: var(--forge-panel-active);
+}
+
+.empty-list,
+.result-empty {
+  border-color: var(--forge-line);
+  border-radius: 5px;
+  color: var(--forge-text-muted);
+  background: rgb(13 11 10 / 36%);
+}
+
+.empty-list p,
+.result-empty p {
+  color: var(--forge-text);
+}
+
+.constant-result {
+  color: var(--forge-success);
+}
+
+.result-unavailable,
+.equals-mark {
+  color: var(--forge-text-faint);
+}
+
+.result-inspector {
+  border-color: var(--forge-line);
+  border-radius: 4px;
+  background: var(--forge-field);
+  box-shadow: inset 0 2px 5px rgb(0 0 0 / 34%);
+}
+
+.result-inspector > div {
+  border-color: var(--forge-line-subtle);
+}
+
+.result-inspector span,
+.result-inspector > p {
+  color: var(--forge-text-muted);
+}
+
+.result-inspector strong {
+  color: var(--forge-text);
+  font-family:
+    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+.result-inspector > p {
+  border-color: var(--forge-line-subtle);
+  background: var(--forge-panel-raised);
+}
+
+.rules-help summary {
+  border-color: var(--forge-copper);
+  border-radius: 3px;
+  color: var(--forge-heat);
+  background: var(--forge-panel-raised);
+  box-shadow: inset 0 1px rgb(244 235 221 / 6%);
+}
+
+.rules-help > div {
+  border-color: var(--forge-line);
+  border-radius: 4px;
+  color: var(--forge-text-muted);
+  background: var(--forge-panel-raised);
+  box-shadow:
+    inset 0 1px rgb(244 235 221 / 6%),
+    0 1rem 3rem rgb(0 0 0 / 52%);
+}
+
+.rules-help strong {
+  color: var(--forge-text);
+}
+
+.constraint-legend,
+.constraint-state {
+  color: var(--forge-text-muted);
+}
+
+.constraint-legend span::before,
+.constraint-state-dot {
+  border: 1px solid currentcolor;
+  border-radius: 2px;
+  background: var(--forge-disabled);
+}
+
+.constraint-legend .legend-green::before,
+.constraint-green .constraint-state-dot,
+.snapshot-constraint i {
+  background: var(--forge-success);
+}
+
+.constraint-legend .legend-yellow::before,
+.constraint-yellow .constraint-state-dot {
+  background: var(--forge-warning);
+}
+
+.constraint-legend .legend-red::before,
+.constraint-red .constraint-state-dot {
+  background: var(--forge-danger);
+}
+
+.constraint-state strong {
+  color: var(--forge-text);
+}
+
+.constraint-green {
+  border-color: rgb(101 211 145 / 62%);
+  background: linear-gradient(
+    90deg,
+    rgb(101 211 145 / 9%),
+    var(--forge-panel-raised) 24%
+  );
+}
+
+.constraint-yellow {
+  border-color: rgb(242 190 85 / 64%);
+  background: linear-gradient(
+    90deg,
+    rgb(242 190 85 / 10%),
+    var(--forge-panel-raised) 24%
+  );
+}
+
+.constraint-red {
+  border-color: rgb(255 118 107 / 65%);
+  background: linear-gradient(
+    90deg,
+    rgb(255 118 107 / 9%),
+    var(--forge-panel-raised) 24%
+  );
+}
+
+.optimization-engine-label strong,
+.optimization-feedback-initializing,
+.optimization-feedback-solving {
+  color: var(--forge-heat);
+}
+
+.optimization-control select[multiple] option {
+  border-radius: 2px;
+}
+
+.optimization-control select[multiple] option:checked {
+  color: var(--forge-on-heat);
+  background: var(--forge-heat);
+}
+
+.optimization-help,
+.optimization-feedback {
+  color: var(--forge-text-muted);
+}
+
+.optimize-button,
+.cancel-button,
+.export-button {
+  border-radius: 4px;
+}
+
+.optimize-button,
+.export-button {
+  border-color: #ffb35d;
+  color: var(--forge-on-heat);
+  background: var(--forge-heat);
+  box-shadow:
+    inset 0 1px rgb(255 255 255 / 28%),
+    inset 0 -2px rgb(91 45 13 / 30%),
+    0 0.45rem 1.2rem rgb(0 0 0 / 30%);
+}
+
+.optimize-button:hover,
+.export-button:hover {
+  color: var(--forge-on-heat);
+  background: var(--forge-heat-hover);
+}
+
+.optimize-button:active,
+.export-button:active,
+.add-row-button:active {
+  transform: translateY(1px);
+}
+
+.optimize-button:disabled {
+  border-color: var(--forge-line);
+  color: var(--forge-text-faint);
+  background: var(--forge-panel-raised);
+  opacity: 0.72;
+}
+
+.loading-spinner {
+  border-color: rgb(26 16 8 / 35%);
+  border-top-color: var(--forge-on-heat);
+}
+
+.cancel-button {
+  border-color: rgb(255 118 107 / 55%);
+  color: var(--forge-danger);
+  background: #291513;
+}
+
+.export-feedback {
+  border-color: rgb(101 211 145 / 55%);
+  border-radius: 4px;
+  color: var(--forge-success);
+  background: #14241b;
+}
+
+.snapshot-meta {
+  border-color: var(--forge-line);
+  color: var(--forge-text-muted);
+  font-family:
+    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+.snapshot-group h3,
+.snapshot-objective h3 {
+  color: var(--forge-text);
+}
+
+.snapshot-table,
+.snapshot-expression,
+.snapshot-constraint {
+  border-color: var(--forge-line);
+  border-radius: 4px;
+  background: var(--forge-field);
+  box-shadow: inset 0 1px rgb(244 235 221 / 3%);
+}
+
+.snapshot-table-header {
+  color: var(--forge-text-muted);
+  background: var(--forge-panel-active);
+  font-family:
+    "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+.snapshot-table-row {
+  border-color: var(--forge-line-subtle);
+}
+
+.snapshot-table-row span:not(.snapshot-source),
+.snapshot-expression > div:first-child > strong {
+  font-family:
+    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.snapshot-source,
+.snapshot-none,
+.result-empty span {
+  color: var(--forge-text-muted);
+}
+
+.snapshot-expression code,
+.snapshot-constraint code {
+  color: var(--forge-text);
+}
+
+.snapshot-expression button {
+  color: var(--forge-heat);
+}
+
+.snapshot-constraint {
+  border-color: rgb(101 211 145 / 58%);
+  background: linear-gradient(
+    90deg,
+    rgb(101 211 145 / 9%),
+    var(--forge-field) 22%
+  );
+}
+
+.snapshot-constraint > span {
+  color: var(--forge-text-muted);
+}
+
+.snapshot-constraint > strong {
+  color: var(--forge-success);
+}
+
+.snapshot-objective {
+  border-color: var(--forge-copper);
+  border-radius: 5px;
+  background:
+    linear-gradient(135deg, rgb(244 147 47 / 8%), transparent 42%),
+    var(--forge-panel-raised);
+  box-shadow: inset 0 1px rgb(244 235 221 / 5%);
+}
+
+.snapshot-objective > div > span,
+.snapshot-objective dt {
+  color: var(--forge-text-muted);
+}
+
+.snapshot-objective dd {
+  color: var(--forge-text);
+  font-family:
+    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+@media (max-width: 34rem) {
+  .topbar {
+    padding-inline: 1rem;
+  }
+
+  .wordmark {
+    font-size: 1.05rem;
+  }
+
+  .workflow-stage,
+  .variable-row,
+  .definition-row,
+  .snapshot-table-row,
+  .snapshot-expression,
+  .snapshot-constraint,
+  .snapshot-objective {
+    border-radius: 4px;
+  }
+
+  .stage-heading {
+    gap: 0.85rem;
+  }
+
+  .stage-summary {
+    border-top-color: var(--forge-line-subtle);
+  }
+}
