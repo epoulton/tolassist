@@ -267,18 +267,20 @@ export function App({
         <a className="wordmark" href="#top" aria-label="TolAssist home">
           Tol<span>Assist</span>
         </a>
-        <p>Engineering tolerance analysis</p>
+        <p>Engineering tolerance optimization</p>
         <span className="phase-label">Local build · Phase 9</span>
       </header>
 
       <main className="app-shell" id="top">
         <header className="hero">
-          <p className="eyebrow">Make the tolerance space explicit</p>
-          <h1>Reason about every edge case.</h1>
+          <p className="eyebrow">
+            Verify designs over the entire tolerance space
+          </p>
+          <h1>Confidence in tolerance design</h1>
           <p className="lede">
             Define the dimensions that shape your design, build unit-aware
-            calculations, and see exactly where the tolerance space satisfies
-            your requirements.
+            calculations, and navigate the tolerance space to satisfy your
+            requirements.
           </p>
         </header>
 

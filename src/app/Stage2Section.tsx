@@ -297,8 +297,9 @@ export function Stage2Section({
           <p className="stage-kicker">Derived variables</p>
           <h2 id="stage-2-title">Build the calculation chain</h2>
           <p>
-            Define quantities from base variables and earlier expressions. Every
-            relevant minimum, nominal, and maximum combination is evaluated.
+            Define derived variables from base variables and earlier
+            expressions. Every relevant minimum, nominal, and maximum
+            combination is evaluated.
           </p>
         </div>
         <div className="stage-summary" aria-live="polite">

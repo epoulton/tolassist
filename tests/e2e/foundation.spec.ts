@@ -4,7 +4,7 @@ test("defines and converts a base variable", async ({ page }) => {
   await page.goto("/");
 
   await expect(
-    page.getByRole("heading", { name: "Reason about every edge case." }),
+    page.getByRole("heading", { name: "Confidence in tolerance design" }),
   ).toBeVisible();
 
   const firstRow = page.getByRole("article").first();
@@ -50,7 +50,7 @@ test("calculates an expression and classifies a constraint", async ({
   await expect(stage2.getByText("4 mm", { exact: true })).toBeVisible();
 
   const stage3 = page.locator("section").filter({
-    has: page.getByRole("heading", { name: "Define what must remain true" }),
+    has: page.getByRole("heading", { name: "Define what must hold true" }),
   });
   await stage3.getByRole("button", { name: "Add constraint" }).click();
   const constraint = stage3.getByRole("textbox");

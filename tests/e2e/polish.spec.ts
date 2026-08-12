@@ -39,7 +39,7 @@ test("fits the five-stage workflow in a narrow viewport", async ({ page }) => {
     ),
   ).toBe(true);
   await expect(
-    page.getByRole("heading", { name: "Configure optimization" }),
+    page.getByRole("heading", { name: "Configure the optimization problem" }),
   ).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "Review the result" }),

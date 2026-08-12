@@ -194,10 +194,10 @@ export function Stage3Section({
         </div>
         <div>
           <p className="stage-kicker">Design constraints</p>
-          <h2 id="stage-3-title">Define what must remain true</h2>
+          <h2 id="stage-3-title">Define what must hold true</h2>
           <p>
-            Add one comparison per row. Constraints are checked across the full
-            tolerance space and combined with logical AND.
+            Define one comparison per row. Constraints are checked across the
+            full tolerance space and combined with logical AND.
           </p>
         </div>
         <div className="stage-summary" aria-live="polite">

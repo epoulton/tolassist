@@ -52,7 +52,7 @@ describe("App", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: "Reason about every edge case.",
+        name: "Confidence in tolerance design",
       }),
     ).toBeInTheDocument();
     expect(screen.getAllByRole("heading", { level: 2 })).toHaveLength(5);
@@ -126,7 +126,7 @@ describe("App", () => {
       .getByRole("heading", { name: "Build the calculation chain" })
       .closest("section")!;
     const stage3 = screen
-      .getByRole("heading", { name: "Define what must remain true" })
+      .getByRole("heading", { name: "Define what must hold true" })
       .closest("section")!;
     const baseFields = within(stage1)
       .getAllByRole("article")[0]!
@@ -200,7 +200,7 @@ describe("App", () => {
     );
     const fields = enterFiniteVariable();
     const stage4 = screen
-      .getByRole("heading", { name: "Configure optimization" })
+      .getByRole("heading", { name: "Configure the optimization problem" })
       .closest("section")!;
     const stage5 = screen
       .getByRole("heading", { name: "Review the result" })
@@ -249,7 +249,7 @@ describe("App", () => {
     render(<App solverDescriptor={descriptor} />);
     enterFiniteVariable();
     const stage4 = screen
-      .getByRole("heading", { name: "Configure optimization" })
+      .getByRole("heading", { name: "Configure the optimization problem" })
       .closest("section")!;
     const stage5 = screen
       .getByRole("heading", { name: "Review the result" })
@@ -321,7 +321,7 @@ describe("App", () => {
     render(<App solverDescriptor={descriptor} />);
     enterFiniteVariable();
     const stage4 = screen
-      .getByRole("heading", { name: "Configure optimization" })
+      .getByRole("heading", { name: "Configure the optimization problem" })
       .closest("section")!;
     const stage5 = screen
       .getByRole("heading", { name: "Review the result" })
